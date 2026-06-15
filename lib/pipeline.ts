@@ -33,5 +33,17 @@ export async function runValuationPipeline(
   const raw = completion.choices[0]?.message?.content;
   if (!raw) throw new Error('Empty Groq response');
 
-  return JSON.parse(raw);
+  const result = JSON.parse(raw);
+
+  // Programmatic guardrail to force stop after 4 rounds of Q&A (4 answers received)
+  if (previousRounds && previousRounds.length >= 4) {
+    result.nextQuestion = null;
+    result.questionCategory = null;
+    if (result.confidence < 85) {
+      result.confidence = 85;
+    }
+  }
+
+  return result;
 }
+
