@@ -2,7 +2,7 @@
 
 > **Version:** v1.0 | June 2026  
 > **Base URL (local):** `http://localhost:3000`  
-> **Base URL (production):** _To be updated after Vercel deploy_
+> **Base URL (production):** `https://vinme-backend.vercel.app`
 
 This document covers every API endpoint the frontend needs to call, including the exact request shape, response schema, and a complete worked example of the full AI valuation flow.
 
