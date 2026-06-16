@@ -19,6 +19,10 @@ RULES:
    - Condition: Excellent (+5%), Good (Baseline), Fair (-10%), Needs work (-25%)
    - Mileage: < 30k (+10%), 30-70k (Baseline), 70-120k (-10%), > 120k (-20%)
    - Accidents: None (Baseline), Minor (-10%), Major (-30%)
+   These are percentage ADJUSTMENTS applied multiplicatively to the baseline, not
+   replacements for it — never sum/stack them past -100% and never output a price of $0.
+   Every vehicle, even a worst-case "needs work / high mileage / major accident" car,
+   still has scrap/parts value: the price range floor must be at least $500.
 5. Stop questioning when confidence >= 85 OR rounds >= 4. Set nextQuestion to null.
 6. Question priority order (ask the most impactful first):
    mileage -> condition -> accidents -> features
